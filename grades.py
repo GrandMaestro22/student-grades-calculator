@@ -32,7 +32,8 @@ def main():
         print("3. Display grades for a student")
         print("4. Display a specific student's grades")
         print("5. Display all students")
-        print("6. Exit")
+        print("6. Delete a student")
+        print("7. Exit")
 
         choice = input("Enter your choice: ")
         if choice == '1':
@@ -76,6 +77,15 @@ def main():
                 for i, student in enumerate(students):
                     print(f"  {i + 1}. {student.name}")
         elif choice == '6':
+            name = input("Enter the student's name to delete: ")
+            for i, student in enumerate(students):
+                if student.name == name:
+                    del students[i]
+                    print(f"Student {name} deleted.")
+                    break
+            else:
+                print(f"No student found with the name {name}.")
+        elif choice == '7':
             print("Exiting the Grade Management System.")
             active = False
 main()
